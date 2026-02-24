@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Глоссарий терминов - MindMap</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем vis.js с CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Область для графа -->
+        <div class="graph-container">
+            <div id="mynetwork"></div>
+        </div>
+        <!-- Боковая панель -->
+        <div class="sidebar">
+            <div class="info-panel" id="info">
+                <h3>Информация о термине</h3>
+                <p>Выберите термин на графе</p>
+            </div>
+            <div class="form-panel">
+                <h3>Управление терминами</h3>
+                <form id="term-form">
+                    <!-- Скрытое поле для хранения оригинального имени термина при редактировании -->
+                    <input type="hidden" id="original-term" name="original-term">
+                    
+                    <label for="term">Термин:</label>
+                    <input type="text" id="term" name="term" required>
+                    
+                    <label for="definition">Определение:</label>
+                    <textarea id="definition" name="definition" rows="3" required></textarea>
+                    
+                    <label for="sources">Источники (URL через запятую):</label>
+                    <textarea id="sources" name="sources" rows="2"></textarea>
+                    
+                    <label for="related">Связанные термины (через запятую):</label>
+                    <textarea id="related" name="related" rows="2"></textarea>
+                    
+                    <div class="form-buttons">
+                        <button type="button" id="add-btn">Добавить</button>
+                        <button type="button" id="update-btn">Обновить</button>
+                        <button type="button" id="delete-btn">Удалить</button>
+                        <button type="button" id="clear-btn">Очистить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Наш скрипт -->
+    <script src="script.js"></script>
+</body>
+</html>
