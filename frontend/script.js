@@ -148,95 +148,95 @@ function clearForm() {
 
 // ---------- Обработчики кнопок ----------
 
-document.getElementById('add-btn').addEventListener('click', async () => {
-    const termInput = document.getElementById('term').value.trim();
-    if (!termInput) {
-        alert('Термин обязателен');
-        return;
-    }
-    const data = {
-        term: termInput,
-        definition: document.getElementById('definition').value.trim(),
-        sources: document.getElementById('sources').value.split(',').map(s => s.trim()).filter(s => s),
-        related_terms: document.getElementById('related').value.split(',').map(s => s.trim()).filter(s => s)
-    };
-    try {
-        const response = await fetch(`${API_BASE}/terms`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-        if (!response.ok) {
-            const err = await response.json();
-            alert('Ошибка: ' + err.detail);
-            return;
-        }
-        clearForm();
-        buildGraphFromFullTerms(); // перестраиваем граф
-    } catch (error) {
-        alert('Ошибка соединения');
-    }
-});
+// document.getElementById('add-btn').addEventListener('click', async () => {
+//     const termInput = document.getElementById('term').value.trim();
+//     if (!termInput) {
+//         alert('Термин обязателен');
+//         return;
+//     }
+//     const data = {
+//         term: termInput,
+//         definition: document.getElementById('definition').value.trim(),
+//         sources: document.getElementById('sources').value.split(',').map(s => s.trim()).filter(s => s),
+//         related_terms: document.getElementById('related').value.split(',').map(s => s.trim()).filter(s => s)
+//     };
+//     try {
+//         const response = await fetch(`${API_BASE}/terms`, {
+//             method: 'POST',
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify(data)
+//         });
+//         if (!response.ok) {
+//             const err = await response.json();
+//             alert('Ошибка: ' + err.detail);
+//             return;
+//         }
+//         clearForm();
+//         buildGraphFromFullTerms(); // перестраиваем граф
+//     } catch (error) {
+//         alert('Ошибка соединения');
+//     }
+// });
 
-document.getElementById('update-btn').addEventListener('click', async () => {
-    const originalTerm = document.getElementById('original-term').value;
-    if (!originalTerm) {
-        alert('Выберите термин для обновления');
-        return;
-    }
-    const termInput = document.getElementById('term').value.trim();
-    if (!termInput) {
-        alert('Термин обязателен');
-        return;
-    }
-    const data = {
-        term: termInput,
-        definition: document.getElementById('definition').value.trim(),
-        sources: document.getElementById('sources').value.split(',').map(s => s.trim()).filter(s => s),
-        related_terms: document.getElementById('related').value.split(',').map(s => s.trim()).filter(s => s)
-    };
-    try {
-        const response = await fetch(`${API_BASE}/terms/${originalTerm}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-        if (!response.ok) {
-            const err = await response.json();
-            alert('Ошибка: ' + err.detail);
-            return;
-        }
-        clearForm();
-        buildGraphFromFullTerms();
-    } catch (error) {
-        alert('Ошибка соединения');
-    }
-});
+// document.getElementById('update-btn').addEventListener('click', async () => {
+//     const originalTerm = document.getElementById('original-term').value;
+//     if (!originalTerm) {
+//         alert('Выберите термин для обновления');
+//         return;
+//     }
+//     const termInput = document.getElementById('term').value.trim();
+//     if (!termInput) {
+//         alert('Термин обязателен');
+//         return;
+//     }
+//     const data = {
+//         term: termInput,
+//         definition: document.getElementById('definition').value.trim(),
+//         sources: document.getElementById('sources').value.split(',').map(s => s.trim()).filter(s => s),
+//         related_terms: document.getElementById('related').value.split(',').map(s => s.trim()).filter(s => s)
+//     };
+//     try {
+//         const response = await fetch(`${API_BASE}/terms/${originalTerm}`, {
+//             method: 'PUT',
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify(data)
+//         });
+//         if (!response.ok) {
+//             const err = await response.json();
+//             alert('Ошибка: ' + err.detail);
+//             return;
+//         }
+//         clearForm();
+//         buildGraphFromFullTerms();
+//     } catch (error) {
+//         alert('Ошибка соединения');
+//     }
+// });
 
-document.getElementById('delete-btn').addEventListener('click', async () => {
-    const originalTerm = document.getElementById('original-term').value;
-    if (!originalTerm) {
-        alert('Выберите термин для удаления');
-        return;
-    }
-    if (!confirm(`Удалить термин "${originalTerm}"?`)) return;
-    try {
-        const response = await fetch(`${API_BASE}/terms/${originalTerm}`, {
-            method: 'DELETE'
-        });
-        if (!response.ok) {
-            const err = await response.json();
-            alert('Ошибка: ' + err.detail);
-            return;
-        }
-        clearForm();
-        buildGraphFromFullTerms();
-    } catch (error) {
-        alert('Ошибка соединения');
-    }
-});
+// document.getElementById('delete-btn').addEventListener('click', async () => {
+//     const originalTerm = document.getElementById('original-term').value;
+//     if (!originalTerm) {
+//         alert('Выберите термин для удаления');
+//         return;
+//     }
+//     if (!confirm(`Удалить термин "${originalTerm}"?`)) return;
+//     try {
+//         const response = await fetch(`${API_BASE}/terms/${originalTerm}`, {
+//             method: 'DELETE'
+//         });
+//         if (!response.ok) {
+//             const err = await response.json();
+//             alert('Ошибка: ' + err.detail);
+//             return;
+//         }
+//         clearForm();
+//         buildGraphFromFullTerms();
+//     } catch (error) {
+//         alert('Ошибка соединения');
+//     }
+// });
 
-document.getElementById('clear-btn').addEventListener('click', clearForm);
+// document.getElementById('clear-btn').addEventListener('click', clearForm);
 
 // Запуск: загружаем граф при загрузке страницы
 window.addEventListener('load', () => {
