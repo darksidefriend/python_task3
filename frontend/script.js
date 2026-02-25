@@ -1,5 +1,5 @@
 // Базовый URL API (бэкенд доступен на localhost:8000)
-const API_BASE = 'http://localhost:8000';
+const API_BASE = 'https://glossary-backend-bzu2.onrender.com';
 
 // Глобальные переменные для графа
 let network = null;
