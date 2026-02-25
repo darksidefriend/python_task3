@@ -14,23 +14,23 @@
 
 ## 2. Структура репозитория
 
-python_task3/
-├── backend/
-│ ├── data/
-│ │ └── terms.db
-│ ├── main.py
-│ ├── models.py
-│ ├── database.py
-│ ├── requirements.txt
-│ └── Dockerfile
-├── frontend/
-│ ├── index.html
-│ ├── script.js
-│ ├── style.css
-│ └── Dockerfile
-├── docker-compose.yml
-├── README.md
-└── CONTAINER_CHOICE.md
+python_task3/\
+├── backend/\
+│ ├── data/\
+│ │ └── terms.db\
+│ ├── main.py\
+│ ├── models.py\
+│ ├── database.py\
+│ ├── requirements.txt\
+│ └── Dockerfile\
+├── frontend/\
+│ ├── index.html\
+│ ├── script.js\
+│ ├── style.css\
+│ └── Dockerfile\
+├── docker-compose.yml\
+├── README.md\
+└── CONTAINER_CHOICE.md\
 ---
 
 ## 3. Описание backend-сервиса
@@ -41,7 +41,7 @@ Backend-часть реализует:
 - доступ к базе данных SQLite (`terms.db`)
 - обработку запросов от frontend-приложения
 
-### Основные компоненты:\
+### Основные компоненты:
 - `main.py` --- точка входа приложения
 - `models.py` --- описание моделей данных
 - `database.py` --- инициализация и работа с БД
