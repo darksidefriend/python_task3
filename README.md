@@ -4,8 +4,8 @@
 
 Данный проект представляет собой клиент-серверное веб-приложение, состоящее из:
 
-- **Backend** --- Python-сервис с REST API и базой данных SQLite\
-- **Frontend** --- статическое веб-приложение (HTML / CSS / JavaScript)\
+- **Backend** --- Python-сервис с REST API и базой данных SQLite
+- **Frontend** --- статическое веб-приложение (HTML / CSS / JavaScript)
 - **Инфраструктура** --- контейнеризация с использованием Docker Compose
 
 Проект разворачивается локально или на сервере с помощью одного файла `docker-compose.yml`.
@@ -14,38 +14,38 @@
 
 ## 2. Структура репозитория
 
-python_task3/\
-├── backend/\
-│ ├── data/\
-│ │ └── terms.db\
-│ ├── main.py\
-│ ├── models.py\
-│ ├── database.py\
-│ ├── requirements.txt\
-│ └── Dockerfile\
-├── frontend/\
-│ ├── index.html\
-│ ├── script.js\
-│ ├── style.css\
-│ └── Dockerfile\
-├── docker-compose.yml\
-├── README.md\
-└── CONTAINER_CHOICE.md\
+python_task3/
+├── backend/
+│ ├── data/
+│ │ └── terms.db
+│ ├── main.py
+│ ├── models.py
+│ ├── database.py
+│ ├── requirements.txt
+│ └── Dockerfile
+├── frontend/
+│ ├── index.html
+│ ├── script.js
+│ ├── style.css
+│ └── Dockerfile
+├── docker-compose.yml
+├── README.md
+└── CONTAINER_CHOICE.md
 ---
 
 ## 3. Описание backend-сервиса
 
 Backend-часть реализует:
 
-- HTTP API для работы с терминами\
-- доступ к базе данных SQLite (`terms.db`)\
+- HTTP API для работы с терминами
+- доступ к базе данных SQLite (`terms.db`)
 - обработку запросов от frontend-приложения
 
 ### Основные компоненты:\
-- `main.py` --- точка входа приложения\
-- `models.py` --- описание моделей данных\
-- `database.py` --- инициализация и работа с БД\
-- `requirements.txt` --- зависимости Python-проекта\
+- `main.py` --- точка входа приложения
+- `models.py` --- описание моделей данных
+- `database.py` --- инициализация и работа с БД
+- `requirements.txt` --- зависимости Python-проекта
 - `Dockerfile` --- сборка backend-контейнера
 
 ---
@@ -54,8 +54,8 @@ Backend-часть реализует:
 
 Frontend представляет собой статическое веб-приложение:
 
-- `index.html` --- основная HTML-страница\
-- `style.css` --- стили интерфейса\
+- `index.html` --- основная HTML-страница
+- `style.css` --- стили интерфейса
 - `script.js` --- логика взаимодействия с backend API
 
 Frontend отправляет HTTP-запросы к backend-сервису и отображает полученные данные пользователю.
@@ -66,13 +66,13 @@ Frontend отправляет HTTP-запросы к backend-сервису и �
 
 Для каждого сервиса используется собственный Dockerfile:
 
-### Backend Dockerfile\
+### Backend Dockerfile
 - Python-образ\
-- установка зависимостей\
+- установка зависимостей
 - запуск приложения
 
-### Frontend Dockerfile\
-- web-сервер\
+### Frontend Dockerfile
+- web-сервер
 - копирование статических файлов
 
 Оба контейнера объединены в одну сеть с помощью Docker Compose.
@@ -83,13 +83,13 @@ Frontend отправляет HTTP-запросы к backend-сервису и �
 
 Файл `docker-compose.yml` описывает:
 
-- два сервиса: `backend` и `frontend`\
-- проброс портов\
+- два сервиса: `backend` и `frontend`
+- проброс портов
 - зависимости между контейнерами
 
 Пример запуска:
 
-```bash\
+```bash
 docker-compose up --build
 ```
 
