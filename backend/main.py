@@ -120,34 +120,76 @@ def startup_event():
     if db.query(models.Term).count() == 0:
         initial_terms = [
             models.Term(
-                term="FastAPI",
-                definition="Современный веб-фреймворк для создания API на Python",
-                sources=["https://fastapi.tiangolo.com/"],
-                related_terms=["Python", "API"]
+                term="Когнитивная нагрузка",
+                definition="мера умственных усилий, затрачиваемых человеком на выполнение конкретной задачи. В контексте обучения – объем рабочей памяти человека, необходимый для усвоения нового материала.",
+                sources=["https://doi.org/10.1207/S15516709COG1202_4"],
+                related_terms=[]
             ),
             models.Term(
-                term="Docker",
-                definition="Платформа для контейнеризации приложений",
-                sources=["https://docker.com/"],
-                related_terms=["Контейнер", "DevOps"]
+                term="Теория когнитивной нагрузки",
+                definition="теория, выдвинутая Джоном Свеллером, которая описывает обучение как процесс обработки информации в рабочей памяти с последующей архивацией в долговременную память. Основной принцип заключается в том, что рабочая память человека ограничена, а долговременная – почти не имеет ограничений.",
+                sources=["https://doi.org/10.1023/A:1022193728205"],
+                related_terms=["Когнитивная нагрузка"]
             ),
             models.Term(
-                term="Python",
-                definition="Язык программирования",
-                sources=["https://python.org/"],
-                related_terms=["FastAPI", "Docker"]
+                term="LMS",
+                definition="система управления обучением, программное приложение для администрирования, документирования, отслеживания и предоставления учебных курсов.",
+                sources=["https://doi.org/10.1007/s44217-024-00138-5"],
+                related_terms=["Moodle"]
+            ),
+            models.Term(
+                term="Moodle",
+                definition="модульная объектно-ориентированная динамическая обучающая среда, бесплатная система управления обучением с открытым кодом.",
+                sources=["https://doi.org/10.1186/s40594-022-00342-9"],
+                related_terms=["LMS", "Moodle Web Services"]
             ),
             models.Term(
                 term="API",
                 definition="Интерфейс для взаимодействия программ",
                 sources=["https://ru.wikipedia.org/wiki/API"],
-                related_terms=["FastAPI"]
+                related_terms=["REST API", "Moodle Web Services", "Endpoint"]
             ),
             models.Term(
-                term="Контейнер",
-                definition="Изолированная среда для запуска приложений",
-                sources=["https://ru.wikipedia.org/wiki/Контейнеризация"],
-                related_terms=["Docker"]
+                term="REST API",
+                definition="архитектурный стиль взаимодействия различных компонентов распределенного приложения в сети.",
+                sources=["https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm"],
+                related_terms=["API", "JSON", "Endpoint"]
+            ),
+            models.Term(
+                term="Node.js",
+                definition="кроссплатформенная среда выполнения языка Javascript на стороне сервера, построенная на движке Chrome V8.",
+                sources=["https://nodejs.org/en/learn/getting-started/introduction-to-nodejs"],
+                related_terms=["Express.js"]
+            ),
+            models.Term(
+                term="Express.js",
+                definition="веб-фреймворк для Node.js, используемый для построения серверов и создания маршрутизации API-запросов.",
+                sources=["https://expressjs.com/en/starter/installing.html"],
+                related_terms=["Node.js", "REST API"]
+            ),
+            models.Term(
+                term="Endpoint",
+                definition="конкретный URL-адрес (конечная точка) в API, по которому клиентское приложение обращается к серверу для обмена данными, выполнения действий или получения доступа к ресурсу.",
+                sources=["https://developer.mozilla.org/en-US/docs/Glossary/Endpoint"],
+                related_terms=["API", "REST API"]
+            ),
+            models.Term(
+                term="JSON",
+                definition="независимый от языков программирования формат обмена данными, основанный на синтаксе объектов Javascript. Он используется для хранения и передачи структурированной информации между сервером и веб-приложениями, являясь стандартом для современных API.",
+                sources=["https://www.rfc-editor.org/rfc/rfc8259"],
+                related_terms=["REST API"]
+            ),
+            models.Term(
+                term="Moodle Web Services",
+                definition="программный интерфейс (API), позволяющий внешним приложениям, системам обмениваться данными с платформой Moodle в реальном времени.",
+                sources=["https://docs.moodle.org/dev/Web_services"],
+                related_terms=["Moodle", "API"]
+            ),
+            models.Term(
+                term="Парсинг",
+                definition="автоматизированный процесс сбора данных с сайтов или других источников с помощью специальных программ-парсеров.",
+                sources=["https://www.ijresm.com/Vol.3_2020/Vol3_Iss4_April20/IJRESM_V3_I4_53.pdf"],
+                related_terms=[]
             ),
         ]
         db.add_all(initial_terms)

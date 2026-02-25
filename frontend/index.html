@@ -27,28 +27,21 @@
                     <input type="hidden" id="original-term" name="original-term">
                     
                     <label for="term">Термин:</label>
-                    <input type="text" id="term" name="term" required>
+                    <input readonly type="text" id="term" name="term" required>
                     
                     <label for="definition">Определение:</label>
-                    <textarea id="definition" name="definition" rows="3" required></textarea>
+                    <textarea readonly id="definition" name="definition" rows="3" required></textarea>
                     
                     <label for="sources">Источники (URL через запятую):</label>
-                    <textarea id="sources" name="sources" rows="2"></textarea>
+                    <textarea readonly id="sources" name="sources" rows="2"></textarea>
                     
                     <label for="related">Связанные термины (через запятую):</label>
-                    <textarea id="related" name="related" rows="2"></textarea>
+                    <textarea readonly id="related" name="related" rows="2"></textarea>
                     
-                    <div class="form-buttons">
-                        <button type="button" id="add-btn">Добавить</button>
-                        <button type="button" id="update-btn">Обновить</button>
-                        <button type="button" id="delete-btn">Удалить</button>
-                        <button type="button" id="clear-btn">Очистить</button>
-                    </div>
                 </form>
             </div>
         </div>
     </div>
-    <!-- Наш скрипт -->
     <script src="script.js"></script>
 </body>
 </html>
