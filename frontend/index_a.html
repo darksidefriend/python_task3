@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Глоссарий терминов - MindMap</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/style.css">
     <!-- Подключаем vis.js с CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
+    <!-- Стили для футера (вариант A) -->
+    <style>
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            padding: 15px 0;
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+            color: #333;
+        }
+        /* Ссылка остаётся стандартной */
+    </style>
 </head>
 <body>
     <div class="container">
@@ -48,7 +60,11 @@
             </div>
         </div>
     </div>
+    <!-- Футер с простой ссылкой (вариант A) -->
+    <footer>
+        <a href="https://github.com/darksidefriend" target="_blank" rel="noopener noreferrer">Мой профиль на GitHub</a>
+    </footer>
     <!-- Наш скрипт -->
-    <script src="script.js"></script>
+    <script src="/static/script.js"></script>
 </body>
 </html>

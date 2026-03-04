@@ -6,11 +6,25 @@ import models
 import database
 from database import SessionLocal, engine
 from pydantic import BaseModel
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+import random
+from pathlib import Path
+from fastapi import Request
+from fastapi.responses import Response
+
+AB_PERCENTAGE_A = 50  # можно менять (например 90)
 
 # Создание таблиц в базе данных (если их нет)
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+
+# Путь к frontend
+FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
+
+# Раздача статики (css, js)
+app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
 
 # Разрешаем CORS для всех источников (в продакшене лучше указать конкретный домен)
 app.add_middleware(
@@ -56,6 +70,31 @@ class TermSimpleOut(BaseModel):
         orm_mode = True
 
 # ----- Эндпоинты -----
+
+@app.get("/", response_class=HTMLResponse)
+def ab_test(request: Request):
+    ab_cookie = request.cookies.get("ab_version")
+
+    if ab_cookie in ["A", "B"]:
+        version = ab_cookie
+    else:
+        # случайное распределение
+        version = "A" if random.randint(1, 100) <= AB_PERCENTAGE_A else "B"
+
+    file_name = "index_a.html" if version == "A" else "index_b.html"
+    file_path = FRONTEND_DIR / file_name
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    response = HTMLResponse(content=content)
+    response.set_cookie(
+        key="ab_version",
+        value=version,
+        max_age=60 * 60 * 24 * 30  # 30 дней
+    )
+
+    return response
 
 @app.get("/terms", response_model=List[TermSimpleOut])
 def read_terms(db: Session = Depends(get_db)):

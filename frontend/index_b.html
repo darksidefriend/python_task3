@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Глоссарий терминов - MindMap</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Подключаем vis.js с CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
+    <!-- Стили для футера и кнопки (вариант B) -->
+    <style>
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            padding: 15px 0;
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+            color: #333;
+        }
+        .github-button {
+            display: inline-block;
+            background-color: #0366d6;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        .github-button:hover {
+            background-color: #024ea4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Область для графа -->
+        <div class="graph-container">
+            <div id="mynetwork"></div>
+        </div>
+        <!-- Боковая панель -->
+        <div class="sidebar">
+            <div class="info-panel" id="info">
+                <h3>Информация о термине</h3>
+                <p>Выберите термин на графе</p>
+            </div>
+            <div class="form-panel">
+                <h3>Управление терминами</h3>
+                <form id="term-form">
+                    <!-- Скрытое поле для хранения оригинального имени термина при редактировании -->
+                    <input type="hidden" id="original-term" name="original-term">
+                    
+                    <label for="term">Термин:</label>
+                    <input type="text" id="term" name="term" required>
+                    
+                    <label for="definition">Определение:</label>
+                    <textarea id="definition" name="definition" rows="3" required></textarea>
+                    
+                    <label for="sources">Источники (URL через запятую):</label>
+                    <textarea id="sources" name="sources" rows="2"></textarea>
+                    
+                    <label for="related">Связанные термины (через запятую):</label>
+                    <textarea id="related" name="related" rows="2"></textarea>
+                    
+                    <div class="form-buttons">
+                        <button type="button" id="add-btn">Добавить</button>
+                        <button type="button" id="update-btn">Обновить</button>
+                        <button type="button" id="delete-btn">Удалить</button>
+                        <button type="button" id="clear-btn">Очистить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Футер с кнопкой (вариант B) -->
+    <footer>
+        <a href="https://github.com/darksidefriend" target="_blank" rel="noopener noreferrer" class="github-button">🐙 Посмотрите мои проекты на GitHub</a>
+    </footer>
+    <!-- Наш скрипт -->
+    <script src="/static/script.js"></script>
+</body>
+</html>
