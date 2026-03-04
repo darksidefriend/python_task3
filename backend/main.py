@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from typing import List
-import models
+from . import models
 import database
 from database import SessionLocal, engine
 from pydantic import BaseModel
