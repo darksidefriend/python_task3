@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from typing import List
 from . import models
-import database
+import . database
 from database import SessionLocal, engine
 from pydantic import BaseModel
 from fastapi.responses import HTMLResponse
