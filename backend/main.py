@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from typing import List
 from . import models
 from . import database
-from database import SessionLocal, engine
+from .database import SessionLocal, engine
 from pydantic import BaseModel
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
